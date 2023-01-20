@@ -1,33 +1,30 @@
-import 'package:flutter/material.dart';  
-import 'Acervo.dart';
-import 'TabBar.dart';
-import 'Sinopse.dart';
+import 'package:flutter/material.dart';
+
+import 'Acervo/Cores.dart';
+import 'Widget/TabBar.dart';
+import 'Screen/Sinopse.dart';
 
 void main() => runApp(const MyMatrix());
 
-class MyMatrix extends StatefulWidget {
-  const MyMatrix({super.key});
-  @override
-  State<MyMatrix> createState() => _MyMatrixState();
-}
-
 final moviecontroller = PageController();
 
-class _MyMatrixState extends State<MyMatrix> {
+class MyMatrix extends StatelessWidget {
+  const MyMatrix({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return MaterialApp(debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 17,
+          toolbarHeight: 15,
           backgroundColor: Cor.base,
         ),
         body: PageView(
             physics: const NeverScrollableScrollPhysics(),
             controller: moviecontroller,
-            children: const [Catalogo(), MovieSnopse()]),
+            children: const [Tabs(), MovieSnopse()]),
       ),
     );
   }
 }
+
+

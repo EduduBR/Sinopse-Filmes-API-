@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Acervo/Strings.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'Acervo.dart';
-import 'MovieList.dart';
+import '../Acervo/Cores.dart';
+import '../Screen/List_I.dart';
+import '../Screen/List_II.dart';
 
-void main() => runApp(const Catalogo());
+
 bool isSwitched = false;
 
-class Catalogo extends StatefulWidget {
-  const Catalogo({super.key});
+class Tabs extends StatefulWidget {
+  const Tabs({super.key});
 
   @override
-  State<Catalogo> createState() => _CatalogoState();
+  State<Tabs> createState() => _TabsState();
 }
 
-class _CatalogoState extends State<Catalogo> {
+class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
+    final string = Strings();
     return MaterialApp(
       theme: isSwitched ? ThemeData.dark() : ThemeData.light(),
       debugShowCheckedModeBanner: false,
@@ -30,11 +32,7 @@ class _CatalogoState extends State<Catalogo> {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text("Mega cine",
-                          style: TextStyle(
-                              color: Colors.orange,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold)),
+                      string.appTitle,
                       FlutterSwitch(
                         height: 30.0,
                         width: 45.0,
@@ -43,8 +41,7 @@ class _CatalogoState extends State<Catalogo> {
                         activeColor: Cor.transparent,
                         inactiveColor: Cor.transparent,
                         toggleColor: Cor.switch_,
-                        switchBorder:
-                            Border.all(color: Cor.base, width: 3),
+                        switchBorder: Border.all(color: Cor.base, width: 3),
                         value: isSwitched,
                         onToggle: (value) {
                           setState(() {
@@ -53,14 +50,15 @@ class _CatalogoState extends State<Catalogo> {
                         },
                       ),
                     ]),
-                Container(
-                  margin: const EdgeInsets.only(top: 20),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: TabBar(
                       indicatorWeight: 1,
                       labelColor: Cor.base,
-                      unselectedLabelColor:isSwitched?Colors.white: Colors.black,
+                      unselectedLabelColor:
+                          isSwitched ? Colors.white : Colors.black,
                       indicatorColor: Cor.transparent,
-                      tabs: [Text('Populares',style: GoogleFonts.robotoSlab(fontSize: 20),), Text('Mais Avaliados',style: GoogleFonts.robotoSlab(fontSize: 20))]),
+                      tabs: [string.pop, string.morepop]),
                 ),
                 const Expanded(
                     child: TabBarView(
