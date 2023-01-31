@@ -33,7 +33,7 @@ Stream<List<Poster>> getInfoMovie() async* {
     if (resultado.statusCode == 200) {
       poster.add(Poster(
           title: resultado.data['title'],
-          imagem:
+          image:
               'https://image.tmdb.org/t/p/w500${resultado.data['poster_path']}',
           pop: resultado.data["popularity"],
           overview: resultado.data["overview"]));

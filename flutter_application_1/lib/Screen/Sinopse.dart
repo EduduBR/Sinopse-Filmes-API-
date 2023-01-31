@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Acervo/Strings.dart';
-import 'package:flutter_application_1/Widget/MvvM.dart';
+import 'package:flutter_application_1/Widget/ViewModel.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../Acervo/Cores.dart';
 import '../Widget/TabBar.dart';
@@ -15,7 +15,7 @@ class MovieSnopse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appView = AppMVVM();
+    final appView = AppModel();
     final strings = Strings();
     return MaterialApp(
       theme: isSwitched ? ThemeData.dark() : ThemeData.light(),

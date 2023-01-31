@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import '../Widget/MvvM.dart';
+import '../Widget/ViewModel.dart';
 import '../Acervo/Stream.dart';
-import '../Widget/Baner.dart';
+import '../Widget/View.dart';
 
 class MoviePopList extends StatelessWidget {
   const MoviePopList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final filtro = AppMVVM();
+    final filtro = AppModel();
     return Scaffold(
       body: Center(
         child: StreamBuilder(

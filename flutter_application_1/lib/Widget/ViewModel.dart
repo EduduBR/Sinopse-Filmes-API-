@@ -4,10 +4,10 @@ import '../Acervo/ClassPoster.dart';
 import '../Screen/Sinopse.dart';
 import '../main.dart';
 
-class AppMVVM extends ChangeNotifier {
+class AppModel extends ChangeNotifier {
   List<Poster> get all => poster;
 
-  var selectedMovie = 0;
+  var movieSelected = 0;
 
 // alphabetical order
   List<Poster> alphabetical() {
@@ -23,14 +23,15 @@ class AppMVVM extends ChangeNotifier {
 
   // next page
   void selected(index, button) {
-    selectedMovie = index;
-    image = button.imagem;
+    movieSelected = index;
+    image = button.image;
     sinopse = button.overview;
     title = button.title;
     moviecontroller.nextPage(
         duration: const Duration(microseconds: 300), curve: Curves.ease);
   }
 
+//Back page
   void back() {
     moviecontroller.previousPage(
         duration: const Duration(microseconds: 300), curve: Curves.ease);

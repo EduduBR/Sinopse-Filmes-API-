@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Widget/MvvM.dart';
-import 'package:flutter_application_1/Widget/Baner.dart';
+import 'package:flutter_application_1/Widget/ViewModel.dart';
+import 'package:flutter_application_1/Widget/View.dart';
 import '../Acervo/Stream.dart';
-
-
 
 class MovieList extends StatelessWidget {
   const MovieList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final filter = AppMVVM();
+    final filter = AppModel();
     return Scaffold(
       body: Center(
         child: StreamBuilder(
@@ -43,4 +41,3 @@ class MovieList extends StatelessWidget {
     );
   }
 }
-

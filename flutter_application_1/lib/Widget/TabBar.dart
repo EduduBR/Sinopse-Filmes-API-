@@ -5,7 +5,6 @@ import '../Acervo/Cores.dart';
 import '../Screen/List_I.dart';
 import '../Screen/List_II.dart';
 
-
 bool isSwitched = false;
 
 class Tabs extends StatefulWidget {
