@@ -31,13 +31,9 @@ class _TabsState extends State<Tabs> {
               Switch(
                 activeColor: ColorPalettey.white,
                 value: isSwitched,
-                onChanged: (value) => setState(
-                  () {
-                    print(isSwitched);
+                onChanged: (value) => 
                     Provider.of<ViewModel>(context, listen: false)
-                        .status(value);
-                  },
-                ),
+                        .status(value)
               )
             ],
           ),
