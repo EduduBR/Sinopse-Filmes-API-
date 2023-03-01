@@ -1,60 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Acervo/Strings.dart';
 import 'package:flutter_application_1/Widget/ViewModel.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import '../Acervo/Cores.dart';
-import '../Widget/TabBar.dart';
 
 //global variavel
 var image = '';
 var sinopse = '';
 var title = '';
 
-class MovieSnopse extends StatelessWidget {
-  const MovieSnopse({super.key});
+class ScreenSnopse extends StatelessWidget {
+  const ScreenSnopse({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final appView = AppModel();
-    final strings = Strings();
-    return MaterialApp(
-      theme: isSwitched ? ThemeData.dark() : ThemeData.light(),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Stack(
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 70,
+        elevation: 10,
+        centerTitle: true,
+        title: Text('Sinopse', style: Theme.of(context).textTheme.titleLarge),
+        leading: IconButton(
+          onPressed: Provider.of<ViewModel>(context, listen: false).back,
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: ColorPalettey.white,
+            size: 30,
+          ),
+        ),
+      ),
+      body: Container(
+        color: isSwitched ? ColorPalettey.primary : ColorPalettey.dark,
+        child: Center(
+          child: ListView(
             children: [
-              ListView(
-                children: [
-                  Image.network(image),
-                  Container(
-                    margin: const EdgeInsets.all(15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          style: GoogleFonts.robotoSlab(fontSize: 50),
-                        ),
-                        strings.sinopse,
-                        Text(sinopse,
-                            style: GoogleFonts.robotoSlab(fontSize: 25))
-                      ],
-                    ),
-                  ),
-                ],
-              ),
               Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: IconButton(
-                  onPressed: appView.back,
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Cor.switch_,
-                    size: 30,
+                padding: const EdgeInsets.fromLTRB(5, 20, 5, 40),
+                child: Image.network(image),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: ColorPalettey.white.withOpacity(0.5),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30))),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Text(
+                        title,
+                        style: GoogleFonts.robotoSlab(
+                            fontSize: 50, color: ColorPalettey.white),
+                      ),
+                      Text(sinopse,
+                          style: GoogleFonts.robotoSlab(
+                              fontSize: 25, color: ColorPalettey.white))
+                    ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

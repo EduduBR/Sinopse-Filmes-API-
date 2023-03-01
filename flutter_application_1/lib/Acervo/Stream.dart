@@ -1,12 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'ClassPoster.dart';
 
 //global list
 List<Poster> poster = [];
 
-// movie code
-class Cod {
+Stream<List<Poster>> getInfoMovie() async* {
   final _codeMovie = [
     '436270',
     '76600',
@@ -20,23 +18,24 @@ class Cod {
     '550',
     '966220'
   ];
-}
-
-Stream<List<Poster>> getInfoMovie() async* {
   poster.clear();
-  final code = Cod();
-  final picture = Dio();
-  const key = '127daaec0c09ab44dff0ed55219f1591';
-  for (int i = 0; i < code._codeMovie.length; i++) {
-    final resultado = await picture.get(
-        'https://api.themoviedb.org/3/movie/${code._codeMovie[i]}?api_key=$key&language=pt-BR');
-    if (resultado.statusCode == 200) {
+
+  final dio = Dio();
+  const token = '127daaec0c09ab44dff0ed55219f1591&language=pt-BR';
+
+  for (int i = 0; i < _codeMovie.length; i++) {
+    final repository = await dio.get(
+        'https://api.themoviedb.org/3/movie/${_codeMovie[i]}?api_key=$token');
+
+    final uri =
+        'https://image.tmdb.org/t/p/w500${repository.data['poster_path']}';
+
+    if (repository.statusCode == 200) {
       poster.add(Poster(
-          title: resultado.data['title'],
-          image:
-              'https://image.tmdb.org/t/p/w500${resultado.data['poster_path']}',
-          pop: resultado.data["popularity"],
-          overview: resultado.data["overview"]));
+          title: repository.data['title'],
+          image: uri,
+          popular: repository.data["popularity"],
+          overview: repository.data["overview"]));
     } else {
       throw Exception('Falha ao carregar dados...');
     }

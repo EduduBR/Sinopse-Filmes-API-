@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Acervo/Stream.dart';
 import '../Acervo/ClassPoster.dart';
+
 import '../Screen/Sinopse.dart';
 import '../main.dart';
 
-class AppModel extends ChangeNotifier {
+class ViewModel extends ChangeNotifier {
   List<Poster> get all => poster;
 
   var movieSelected = 0;
+
+
+  void status(value) {
+    isSwitched = value;
+    notifyListeners();
+  }
 
 // alphabetical order
   List<Poster> alphabetical() {
@@ -17,7 +24,7 @@ class AppModel extends ChangeNotifier {
 
 // popularity order
   List<Poster> popularity() {
-    all.sort((a, b) => b.pop.compareTo(a.pop));
+    all.sort((a, b) => b.popular.compareTo(a.popular));
     return all;
   }
 

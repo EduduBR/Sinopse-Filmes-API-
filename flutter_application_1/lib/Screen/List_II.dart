@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
-import '../Widget/ViewModel.dart';
+import 'package:flutter_application_1/Acervo/Cores.dart';
+import 'package:provider/provider.dart';
 import '../Acervo/Stream.dart';
-import '../Widget/View.dart';
+import '../Widget/baner.dart';
+import '../Widget/ViewModel.dart';
 
-class MoviePopList extends StatelessWidget {
-  const MoviePopList({super.key});
+class BodyListViewII extends StatelessWidget {
+  const BodyListViewII({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final filtro = AppModel();
     return Scaffold(
       body: Center(
         child: StreamBuilder(
           stream: getInfoMovie(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              if (filtro.popularity().isEmpty == false) {
-                return Baner(
-                  order: filtro.popularity(),
-                );
-              } else {
+              //Se a função retornar uma lista com itens
+              if (Provider.of<ViewModel>(context).popularity().isEmpty == false) {
+                //retorne uma grid na ordem selecionada
+                return Baner(order: Provider.of<ViewModel>(context).popularity());
+              } //se não retorne uma mensagem de erro de conexao
+              else {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.error_outline_sharp,
-                      color: Colors.red[700],
-                      size: 100,
-                    ),
+                    Icon(Icons.error_outline_sharp,
+                        color: ColorPalettey.red, size: 100),
                     const Text("   Erro no Processo\nVerifique sua conexão"),
                   ],
                 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Acervo/VisualGrid.dart';
+import 'package:flutter_application_1/Acervo/visual_grid.dart';
+import 'package:provider/provider.dart';
 import '../Acervo/ClassPoster.dart';
 import 'ViewModel.dart';
 
@@ -9,7 +10,6 @@ class Baner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = AppModel();
     return GridView.count(
       crossAxisCount: 3,
       crossAxisSpacing: 10,
@@ -18,12 +18,12 @@ class Baner extends StatelessWidget {
       shrinkWrap: true,
       childAspectRatio: (100 / 200),
       children: List.generate(
-        viewModel.all.length,
+        Provider.of<ViewModel>(context).all.length,
         (index) {
           var button = order[index];
           return GestureDetector(
             onTap: () {
-              viewModel.selected(index, button);
+              Provider.of<ViewModel>(context,listen: false).selected(index, button);
             },
             child: VisualGrid(
                 buttonImage: button.image, buttonTitle: button.title),
