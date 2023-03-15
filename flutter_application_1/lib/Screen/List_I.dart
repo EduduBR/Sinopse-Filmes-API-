@@ -3,7 +3,7 @@ import 'package:flutter_application_1/Acervo/Cores.dart';
 import 'package:flutter_application_1/Widget/baner.dart';
 import 'package:flutter_application_1/Widget/ViewModel.dart';
 import 'package:provider/provider.dart';
-import '../Acervo/Stream.dart';
+import '../Widget/Stream.dart';
 
 class BodyListViewI extends StatelessWidget {
   const BodyListViewI({super.key});

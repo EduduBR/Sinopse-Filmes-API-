@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Acervo/Cores.dart';
 import 'package:provider/provider.dart';
-import '../Acervo/Stream.dart';
+import '../Widget/Stream.dart';
 import '../Widget/baner.dart';
 import '../Widget/ViewModel.dart';
 

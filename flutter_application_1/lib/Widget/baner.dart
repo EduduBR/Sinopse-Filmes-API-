@@ -5,7 +5,7 @@ import '../Acervo/ClassPoster.dart';
 import 'ViewModel.dart';
 
 class Baner extends StatelessWidget {
-  List<Poster> order;
+  final List<Poster> order;
   Baner({super.key, required this.order});
 
   @override

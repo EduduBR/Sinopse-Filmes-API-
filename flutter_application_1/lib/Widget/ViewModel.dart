@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Acervo/Stream.dart';
+import 'package:flutter_application_1/Widget/Stream.dart';
 import '../Acervo/ClassPoster.dart';
 
 import '../Screen/Sinopse.dart';

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'ClassPoster.dart';
+import '../Acervo/ClassPoster.dart';
 
 //global list
 List<Poster> poster = [];
