@@ -5,12 +5,10 @@ import 'Widget/ViewModel.dart';
 import 'Widget/home.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
+  {
     Provider.debugCheckInvalidValueType = null;
     runApp(const MyApp());
-  });
+  };
 }
 
 bool isSwitched = false;

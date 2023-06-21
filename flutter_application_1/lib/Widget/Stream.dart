@@ -34,7 +34,7 @@ Stream<List<Poster>> getInfoMovie() async* {
       poster.add(Poster(
           title: repository.data['title'],
           image: uri,
-          popular: repository.data["popularity"],
+          point: repository.data["popularity"],
           overview: repository.data["overview"]));
     } else {
       throw Exception('Falha ao carregar dados...');

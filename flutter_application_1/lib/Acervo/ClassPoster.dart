@@ -3,11 +3,11 @@
 class Poster {
   String title;
   String image;
-  double popular;
+  double point;
   String overview;
   Poster(
       {required this.title,
       required this.image,
-      required this.popular,
+      required this.point,
       required this.overview});
 }

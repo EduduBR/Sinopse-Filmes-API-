@@ -21,13 +21,14 @@ class _TabsState extends State<Tabs> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          leading: Image.asset('assets/catalogo.png',scale: 12),
           toolbarHeight: 70,
           elevation: 10,
           centerTitle: false,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Mega cine",style: Theme.of(context).textTheme.titleLarge),
+              Text("Movie Catalog",style: Theme.of(context).textTheme.titleLarge),
               Switch(
                 activeColor: ColorPalettey.white,
                 value: isSwitched,

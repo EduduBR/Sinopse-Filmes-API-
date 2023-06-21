@@ -20,15 +20,22 @@ class ScreenSnopse extends StatelessWidget {
         toolbarHeight: 70,
         elevation: 10,
         centerTitle: true,
-        title: Text('Sinopse', style: Theme.of(context).textTheme.titleLarge),
-        leading: IconButton(
-          onPressed: Provider.of<ViewModel>(context, listen: false).back,
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: ColorPalettey.white,
-            size: 30,
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Sinopse', style: Theme.of(context).textTheme.titleLarge),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Image.asset('assets/sinopse.png', scale: 15),
+            )
+          ],
         ),
+        leading: GestureDetector(
+            onTap: Provider.of<ViewModel>(context, listen: false).back,
+            child: Container(
+              color: isSwitched ? ColorPalettey.secundary : ColorPalettey.black,
+              child: Icon(Icons.arrow_back_ios_new),
+            )),
       ),
       body: Container(
         color: isSwitched ? ColorPalettey.primary : ColorPalettey.dark,

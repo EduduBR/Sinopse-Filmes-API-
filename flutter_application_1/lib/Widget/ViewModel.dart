@@ -10,7 +10,6 @@ class ViewModel extends ChangeNotifier {
 
   var movieSelected = 0;
 
-
   void status(value) {
     isSwitched = value;
     notifyListeners();
@@ -24,7 +23,7 @@ class ViewModel extends ChangeNotifier {
 
 // popularity order
   List<Poster> popularity() {
-    all.sort((a, b) => b.popular.compareTo(a.popular));
+    all.sort((a, b) => b.point.compareTo(a.point));
     return all;
   }
 
