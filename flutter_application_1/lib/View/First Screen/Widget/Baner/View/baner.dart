@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Acervo/visual_grid.dart';
+import 'package:flutter_application_1/View/First%20Screen/Widget/Baner/Visual%20Grid/visual_grid.dart';
 import 'package:provider/provider.dart';
-import '../Acervo/ClassPoster.dart';
-import 'ViewModel.dart';
+import '../../../../../Model/Functions/model.dart';
+import '../../../../../Useful/Class Poster/poster.dart';
 
 class Baner extends StatelessWidget {
   final List<Poster> order;
@@ -23,7 +23,7 @@ class Baner extends StatelessWidget {
           var button = order[index];
           return GestureDetector(
             onTap: () {
-              Provider.of<ViewModel>(context,listen: false).selected(index, button);
+              Provider.of<ViewModel>(context,listen: false).selected(index, button,context);
             },
             child: VisualGrid(
                 buttonImage: button.image, buttonTitle: button.title),

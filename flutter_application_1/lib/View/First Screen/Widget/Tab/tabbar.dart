@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Widget/ViewModel.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../Acervo/Cores.dart';
-import '../Screen/List_I.dart';
-import '../Screen/List_II.dart';
-import '../main.dart';
+import '../../../../Model/Functions/model.dart';
+import '../../../../Useful/Color Palettey/color_palettey.dart';
+import '../../../../Useful/Global/globals.dart';
+import '../Catalog/alphabetical_movies.dart';
+import '../Catalog/favorite_movies.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -31,7 +31,7 @@ class _TabsState extends State<Tabs> {
               Text("Movie Catalog",style: Theme.of(context).textTheme.titleLarge),
               Switch(
                 activeColor: ColorPalettey.white,
-                value: isSwitched,
+                value: Globals.isSwitched,
                 onChanged: (value) => 
                     Provider.of<ViewModel>(context, listen: false)
                         .status(value)
@@ -63,7 +63,7 @@ class _TabsState extends State<Tabs> {
               ),
               const Expanded(
                 child: TabBarView(
-                  children: [BodyListViewI(), BodyListViewII()],
+                  children: [AlphabeticalList(),PopularityList()],
                 ),
               )
             ],

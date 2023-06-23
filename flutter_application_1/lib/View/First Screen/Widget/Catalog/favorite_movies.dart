@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Acervo/Cores.dart';
+import 'package:flutter_application_1/Useful/Color%20Palettey/color_palettey.dart';
 import 'package:provider/provider.dart';
-import '../Widget/Stream.dart';
-import '../Widget/baner.dart';
-import '../Widget/ViewModel.dart';
+import '../../../../Model/API/Stream.dart';
+import '../../../../Model/Functions/model.dart';
+import '../Baner/View/baner.dart';
 
-class BodyListViewII extends StatelessWidget {
-  const BodyListViewII({super.key});
+class PopularityList extends StatelessWidget {
+  const PopularityList({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Cores.dart';
+import '../Color Palettey/color_palettey.dart';
 
-class ThemeApp {
+class ThemeCustom {
   final themeDark = ThemeData(
     iconTheme: IconThemeData(size: 40),
     brightness: Brightness.dark,
